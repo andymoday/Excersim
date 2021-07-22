@@ -1,10 +1,11 @@
 def sum_of_multiples(limit, multiples):
     numbers = []
     for multiple in multiples:
+        if multiple == 0:
+            continue
         i = 1
         while multiple * i < limit:
-            numbers.append(multiple * i)
+            if multiple * i not in numbers:
+                numbers.append(multiple * i)
             i += 1
     return sum(numbers)
-
-print(sum_of_multiples(100, [3, 5]))
